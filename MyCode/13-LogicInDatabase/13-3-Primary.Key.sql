@@ -1,0 +1,26 @@
+USE tempdb;
+GO
+ 
+--1
+DROP TABLE IF EXISTS table1;
+DROP TABLE IF EXISTS table3;
+
+--2
+CREATE TABLE table1 (col1 INT NOT NULL,
+    col2 VARCHAR(10)
+    CONSTRAINT PK_table1_Col1 PRIMARY KEY (col1));
+ 
+--3
+CREATE TABLE table2 (col1 INT NOT NULL,
+    col2 VARCHAR(10) NOT NULL, col3 INT NULL,
+    CONSTRAINT PK_table2_col1col2 PRIMARY KEY
+    (col1, col2)
+);
+ 
+--4
+CREATE TABLE table3 (col1 INT NOT NULL,
+    col2 VARCHAR(10) NOT NULL, col3 INT NULL);
+ 
+--5
+ALTER TABLE table3 ADD CONSTRAINT PK_table3_col1col2
+    PRIMARY KEY NONCLUSTERED (col1,col2);
