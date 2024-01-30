@@ -1,4 +1,4 @@
-USE AdventureWorks2019;
+﻿USE AdventureWorks2019;
 GO
 
 SELECT CustomerID,
